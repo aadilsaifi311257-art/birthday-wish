@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Ishika! 🎉💖</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(-45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff);
+            background-size: 600% 600%;
+            animation: gradientShift 12s ease infinite;
+            height: 100vh;
+            position: relative;
+            cursor: none;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 0%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ENHANCED Floating Hearts - MORE & BIGGER */
+        .heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            animation: float 5s infinite linear;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: '';
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            background: currentColor;
+            border-radius: 15px 15px 0 0;
+            transform: rotate(-45deg);
+        }
+
+        .heart:after {
+            transform: rotate(45deg);
+            top: 15px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0) translateX(0px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(90vh) rotate(180deg) scale(1) translateX(20px);
+            }
+            90% {
+                opacity: 1;
+                transform: translateY(10vh) rotate(540deg) scale(1) translateX(-20px);
+            }
+            100% {
+                transform: translateY(-100px) rotate(720deg) scale(0) translateX(0px);
+                opacity: 0;
+            }
+        }
+
+        /* Multiple Heart Colors */
+        .heart.pink { color: #ff69b4; }
+        .heart.red { color: #ff4757; }
+        .heart.purple { color: #a55eea; }
+        .heart.yellow { color: #ffa502; }
+        .heart.blue { color: #3742fa; }
+        .heart.orange { color: #ff6348; }
+
+        /* Sparkle Hearts */
+        .heart.sparkle::after {
+            content: '✨';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            animation: sparkle 1s infinite alternate;
+        }
+
+        @keyframes sparkle {
+            0% { opacity: 0.5; transform: translateX(-50%) scale(1); }
+            100% { opacity: 1; transform: translateX(-50%) scale(1.5); }
+        }
+
+        /* Main Container */
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            padding: 20px;
+        }
+
+        /* Birthday Title */
+        .birthday-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(4rem, 10vw, 10rem);
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, #ffd700, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255,255,255,0.5);
+            margin-bottom: 2rem;
+            animation: glowPulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowPulse {
+            0% { 
+                transform: scale(1);
+                filter: drop-shadow(0 0 20px rgba(255,255,255,0.5));
+            }
+            100% { 
+                transform: scale(1.05);
+                filter: drop-shadow(0 0 40px rgba(255,255,255,0.8));
+            }
+        }
+
+        /* Message */
+        .message {
+            font-size: clamp(1.3rem, 4vw, 2.2rem);
+            color: white;
+            line-height: 1.6;
+            max-width: 900px;
+            margin-bottom: 3rem;
+            animation: fadeInUp 2s ease-out;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+            padding: 0 20px;
+        }
+
+        @keyframes fadeInUp {
+            0% { transform: translateY(60px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Love Note */
+        .love-note {
+            font-size: clamp(1.1rem, 3vw, 1.8rem);
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 4rem;
+            animation: fadeInUp 2.5s ease-out 0.5s both;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+            background: rgba(255,255,255,0.2);
+            padding: 20px 40px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        /* Auto Music Indicator */
+        .music-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(76, 175, 80, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: musicPulse 1.5s infinite;
+            z-index: 100;
+            font-size: 0.9rem;
+        }
+
+        @keyframes musicPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Cake */
+        .cake {
+            font-size: clamp(5rem, 12vw, 8rem);
+            margin: 2rem 0;
+            animation: cakeBounce 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255,255,255,0.5));
+        }
+
+        @keyframes cakeBounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .music-indicator {
+                top: 10px;
+                right: 10px;
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Music Indicator -->
+    <div class="music-indicator" id="musicIndicator">
+        🎵 Music Auto-Playing! 
+        <span id="musicIcon">🔊</span>
+    </div>
+
+    <div class="container">
+        <!-- Birthday Title -->
+        <h1 class="birthday-title">🎉 Happy Birthday Ishika! 🎉</h1>
+        
+        <!-- Cake -->
+        <div class="cake">🎂✨🎂</div>
+        
+        <!-- Main Message -->
+        <div class="message">
+            Wishing you the MOST AMAZING birthday ever! 
+            <br><br>
+            May God bless you with endless happiness, success, and all your heart's desires! 
+            <br><br>
+            You're the BEST bestie anyone could ask for! 💖
+        </div>
+        
+        <!-- Love Note -->
+        <div class="love-note">
+            Made with 💕 for my love's favorite person!<br>
+            Lots of hugs & birthday kisses! 😘🎈
+        </div>
+    </div>
+
+    <!-- Auto-Play Birthday Music -->
+    <audio id="birthdaySong" loop autoplay>
+        <!-- Free birthday song - replace with your own if needed -->
+        <source src="Happy Birthday Song 🎂 The Best Birthday Celebration Video 🎉.mp3" type="audio/wav">
+        <!-- Alternative free birthday music sources:
+        https://freesound.org/data/previews/387/387182_7037-lq.mp3 (Happy Birthday)
+        -->
+        Your browser needs audio support!
+    </audio>
+
+    <script>
+        // ENHANCED Floating Hearts - EVERYWHERE!
+        const heartColors = ['pink', 'red', 'purple', 'yellow', 'blue', 'orange'];
+        
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = `heart ${heartColors[Math.floor(Math.random() * heartColors.length)]}`;
+            
+            if (Math.random() > 0.7) heart.classList.add('sparkle');
+            
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        // Create hearts EVERY 100ms (SUPER MANY!)
+        setInterval(createHeart, 100);
+        
+        // Extra hearts on load
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createHeart, i * 200);
+        }
+
+        // Music Auto-Play & Control
+        const audio = document.getElementById('birthdaySong');
+        const musicIndicator = document.getElementById('musicIndicator');
+        const musicIcon = document.getElementById('musicIcon');
+
+        // Try multiple ways to auto-play
+        function initMusic() {
+            audio.volume = 0.4; // Softer volume
+            
+            audio.play().then(() => {
+                musicIcon.textContent = '❤️';
+                console.log('🎵 Music auto-started!');
+            }).catch(e => {
+                console.log('Autoplay blocked, waiting for user interaction...');
+                // Show pause icon initially
+                musicIcon.textContent = '⏸️';
+            });
+        }
+
+        // Auto-start music
+        window.addEventListener('load', initMusic);
+        
+        // Resume on any user interaction (mobile friendly)
+        ['click', 'touchstart', 'keydown'].forEach(event => {
+            document.addEventListener(event, () => {
+                audio.play().catch(() => {});
+            }, { once: true });
+        });
+
+        // Music indicator click to toggle
+        musicIndicator.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                musicIcon.textContent = '❤️';
+            } else {
+                audio.pause();
+                musicIcon.textContent = '⏸️';
+            }
+        });
+
+        // Heart cursor trail
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.85) {
+                const trailHeart = document.createElement('div');
+                trailHeart.className = `heart ${heartColors[Math.floor(Math.random() * heartColors.length)]}`;
+                trailHeart.style.left = e.clientX + 'px';
+                trailHeart.style.top = e.clientY + 'px';
+                trailHeart.style.position = 'fixed';
+                trailHeart.style.animation = 'none';
+                trailHeart.style.transform = 'scale(0.5)';
+                document.body.appendChild(trailHeart);
+                
+                setTimeout(() => trailHeart.remove(), 800);
+            }
+        });
+
+        // Screen shake celebration every 10 seconds
+        setInterval(() => {
+            document.body.style.animation = 'shake 0.5s ease-in-out';
+            setTimeout(() => {
+                document.body.style.animation = '';
+            }, 500);
+        }, 10000);
+
+        // Add shake keyframe
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                20%, 40%, 60%, 80% { transform: translateX(5px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
